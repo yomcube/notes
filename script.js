@@ -1,11 +1,15 @@
-function save() {
-    const downloadFile = () => {
-        const link = document.createElement("a");
-        const content = document.getElementById("mainBox").value;
-        const file = new Blob([content], { type: 'text/plain' });
-        link.href = URL.createObjectURL(file);
-        link.download = "notes.txt";
-        link.click();
-        URL.revokeObjectURL(link.href);
-     };
+function download() {
+    download2('notes.txt', document.getElementGetById('mainBox').value)
+}
+function download2(filename, text) {
+    var element = document.createElement('a');
+    element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+    element.setAttribute('download', filename);
+    
+    element.style.display = 'none';
+    document.body.appendChild(element);
+
+    element.click();
+    
+    document.body.removeChild(element);
 }
