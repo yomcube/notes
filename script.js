@@ -1,5 +1,5 @@
 function download() {
-    download2('notes.txt', document.getElementGetById('mainBox').value)
+    download2('notes.txt', document.getElementById('mainBox').value)
 }
 function download2(filename, text) {
     var element = document.createElement('a');
